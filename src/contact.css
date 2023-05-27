@@ -1,0 +1,177 @@
+#contacts-main {
+    height: 80vh;
+    color: white;
+    padding-top: 20vh;
+}
+
+
+
+.mailer {
+    height: 72vh;
+    padding-left: 1em;
+    font-family: 'Courier New', Courier, monospace;
+    padding-top: 1em;
+}
+
+footer {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-color: black;
+    height: 8vh;
+    border-top: 1px solid rgb(65, 63, 63);
+    z-index: 99;
+}
+
+.footicons {
+    fill: white;
+    width: 30px;
+    height: 30px;
+    color: white;
+    padding-right: 5%;
+    z-index: 2;
+    cursor: pointer;
+}
+.footicons:hover{
+  fill: rgb(215, 215, 215);
+}
+.address {
+    font-size: larger;
+    text-align: left;
+}
+
+address {
+    padding-top: 1em;
+}
+
+.email {
+    /* padding-left: 1em; */
+    padding-top: 2em;
+    font-size: larger;
+    text-align: left;
+}
+
+.email>a {
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+    text-align: left;
+    color: white;
+    /* text-transform: lowercase; */
+}
+
+
+.phone_number {
+    /* padding-left: 1em; */
+    padding-top: 2em;
+    font-size: larger;
+    text-align: left;
+}
+
+.phone_number>span {
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    color: white;
+}
+
+.mailsend {
+    width: 1em;
+    height: 1em;
+    fill: white;
+    text-align: center;
+    transform: rotate(-120deg);
+}
+
+.mailerHire {
+    
+    
+    display: inline-block;
+    padding-bottom: 1em;
+    padding-top: 3em;
+    font-family: 'Anonymous Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    float: left;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .mailerHire::after {
+    position: relative;
+    display: block;
+    content: ' ';
+    height: 1px;
+    background: white;
+    width: 100%;
+    transition: all 1s ease-out;
+  }
+  
+  .mailerHire:hover::after{
+    width: 120%;
+    margin-top: 5%;
+  }
+
+  .contactsHire{
+    width: 0em;
+    height: 100%;
+    fill: white;
+    vertical-align: text-bottom;
+    font-weight: 600;
+    transform: rotateZ(-120deg);
+    transition: all 1s ease-out;
+  }
+  .mailerHire:hover>.contactsHire{
+    width: 1em;
+  }
+
+  .squigly{
+    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 8vh;
+  /* top: -50vh; */
+  z-index: 0;
+  }
+
+  .box {
+    --size: 50px;
+    --b: 10px;
+    --p: 25px;
+    --R: calc(55.9px + var(--b)/2);
+    
+    --_g: #0000 calc(99% - var(--b)),#000 calc(101% - var(--b)) 99%,#0000 101%;
+    --mask:
+      radial-gradient(var(--R) at left 50% bottom calc(-1*var(--p)),var(--_g)) 
+        calc(50% - 2*var(--size)) calc(50% - var(--size)/2 - var(--b)/2)/calc(4*var(--size)) calc(var(--size) + var(--b)),
+      radial-gradient(var(--R) at left 50% top    calc(-1*var(--p)),var(--_g)) 
+        50%                       calc(50% + var(--size)/2 + var(--b)/2)/calc(4*var(--size)) calc(var(--size) + var(--b));
+    background: linear-gradient(90deg,white,#32574c);
+    mask: var(--mask);
+    -webkit-mask:var(--mask);
+    height: 300px;
+  }
+
+  .patternbackground{
+    background-image: radial-gradient(circle, #caffbd 0%, #caffbd 30%, #00000033 30%);
+    background-repeat: repeat;
+    background-size: 3em 3em;
+    width: 36em;
+    height: 30em;
+    position: absolute;
+    bottom: -70em;
+    z-index: -1;
+    left: 16em;
+
+  }
+
+  @media only screen and (max-width:650px){
+    .mailerHire::after{
+      width: 120%;
+    margin-top: 5%;
+    }
+    .mailerHire>.contactsHire{
+      width: 1em;
+    }
+  }
