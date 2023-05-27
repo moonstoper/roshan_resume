@@ -1,7 +1,9 @@
 
 import './nav.css';
-import menu from './images/menu1.png'
-import { useEffect } from 'react';
+import { useState,useEffect} from 'react';
+import MenuOutline from "./images/menu_outline.png"
+import CloseOutline from "./images/close.png"
+
 
 
 const drops = (isactive) => {
@@ -24,7 +26,7 @@ const links = (event, path) => {
 
 const createObserver = (id)=>{
     new IntersectionObserver(([entries])=>{
-        console.log(entries)
+        // console.log(entries)
        if(entries.isIntersecting){
         document.getElementsByName(id)[0].style.width = '3%';
         document.getElementsByName('drops'+id)[0].style.backdropFilter = "contrast(0.5)"
@@ -36,11 +38,11 @@ const createObserver = (id)=>{
 }
 
 function Nav() {
- 
-
+    const [isopenmenu,setisopenmenu] = useState(false)
+const [d,setd] = useState(true)
     
 
-    let d = false
+    // let d = false
     useEffect(()=>{
         createObserver("tophome")
          createObserver("work");
@@ -59,11 +61,13 @@ function Nav() {
                     
 
                 </ul>
-                <img src={menu} alt={'menu'}
+                <img src={isopenmenu?CloseOutline:MenuOutline} alt={'menu'}
                     id="hamburger" onClick={(e) => {
                         e.preventDefault();
-                        d = !d;
-                        drops(d)
+                        
+                        setd(!d)
+                        setisopenmenu(!isopenmenu)
+                        drops(d);
                     }}
                 ></img>
 
@@ -71,17 +75,20 @@ function Nav() {
             <div id='navdrop' className='drops'>
                 <li name="dropstophome" onClick={(e) => {
                     links(e, '/#tophome');
-                    d = !d;
+                    setd(!d)
+                    setisopenmenu(!isopenmenu)
                     drops(d);
                 }} >Home&nbsp;</li>
                 <li name="dropswork" onClick={(e) => {
                     links(e, '/#work');
-                    d = !d;
+                    setd(!d)
+                    setisopenmenu(!isopenmenu)
                     drops(d);
                 }}>Projects&nbsp;</li>
                 <li name="dropscontacts" onClick={(e) => {
                     links(e, '/#contacts');
-                    d = !d;
+                    setd(!d)
+                    setisopenmenu(!isopenmenu)
                     drops(d);
                 }}>Contacts&nbsp;</li>
             </div>
